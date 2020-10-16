@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar style="text-align:center;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="favItem()"><ion-icon slot="icon-only" name="heart-outline"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="mid"> 
+      <ion-row>
+        <div class="center">
+          <ion-card style="text-align:center;">
+            <ion-col><ion-img [src]="loadedItems.photo"></ion-img></ion-col>
+          </ion-card>
+        </div>
+      </ion-row>
+        <ion-row>
+          <ion-col>
+            <h1 style="text-align:center; color:blue " >{{loadedItems.type}}</h1>
+          </ion-col>
+        </ion-row>
+        <ion-card>
+          <ion-row>
+            <ion-col>
+              <ion-list>
+                <ion-item>
+                  Product name : {{loadedItems.brand}} {{loadedItems.model}}
+                </ion-item>
+                <ion-item>
+                  Price : Rp.{{loadedItems.price}}
+                </ion-item>
+                <ion-item>
+                  Stock : {{loadedItems.stock}}
+                </ion-item>
+              </ion-list>
+              <ion-list  class="" [ngClass]="loadedItems.type == 'CPU' ? '' : 'hide'">
+                <ion-item>
+                  Base Clock : {{loadedItems.base_clock}}
+                </ion-item>
+                <ion-item>
+                  Boost Clock : {{loadedItems.boost_clock}}
+                </ion-item>
+                <ion-item>
+                  Total Core : {{loadedItems.core_total}}
+                </ion-item>
+                <ion-item>
+                  Total Thread : {{loadedItems.thread_total}}
+                </ion-item>
+              </ion-list>
+              <ion-list  class="" [ngClass]="loadedItems.type == 'RAM' ? '' : 'hide'">
+                <ion-item>
+                  Speed : {{loadedItems.speed}}
+                </ion-item>
+                <ion-item>
+                  Size : {{loadedItems.size}}
+                </ion-item>
+              </ion-list>
+              <ion-list  class="" [ngClass]="loadedItems.type == 'MotherBoard' ? '' : 'hide'">
+                <ion-item>
+                  Chipset : {{loadedItems.chipset}}
+                </ion-item>
+                <ion-item>
+                  Assigned for : {{loadedItems.motherboard_type}}
+                </ion-item>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+    </ion-grid>
+</ion-content>
+

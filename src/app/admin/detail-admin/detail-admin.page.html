@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar style="text-align:center;" color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail Admin</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="editItem()"><ion-icon slot="icon-only" name="pencil"></ion-icon></ion-button>
+      <ion-button (click)="deleteConfirm()"><ion-icon slot="icon-only" name="trash"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="mid"> 
+    <ion-row>
+      <div class="center">
+        <ion-card style="text-align:center;">
+          <ion-col><ion-img [src]="admin.photo"></ion-img></ion-col>
+        </ion-card>
+      </div>
+    </ion-row>
+      <ion-row>
+        <ion-col>
+          <h1 style="text-align:center; color:blue " >{{admin.type}}</h1>
+        </ion-col>
+      </ion-row>
+      <ion-card>
+        <ion-row>
+          <ion-col>
+            <ion-list>
+              <ion-item>
+                Product name : {{admin.brand}} {{admin.model}}
+              </ion-item>
+              <ion-item>
+                Price : Rp.{{admin.price}}
+              </ion-item>
+              <ion-item>
+                Stock : {{admin.stock}}
+              </ion-item>
+            </ion-list>
+            <ion-list class="" [ngClass]="admin.type == 'CPU' ? '' : 'hide'">
+              <ion-item>
+                Base Clock : {{admin.base_clock}}
+              </ion-item>
+              <ion-item>
+                Boost Clock : {{admin.boost_clock}}
+              </ion-item>
+              <ion-item>
+                Total Core : {{admin.core_total}}
+              </ion-item>
+              <ion-item>
+                Total Thread : {{admin.thread_total}}
+              </ion-item>
+            </ion-list>
+            <ion-list class="" [ngClass]="admin.type == 'RAM' ? '' : 'hide'">
+              <ion-item>
+                Speed : {{admin.speed}}
+              </ion-item>
+              <ion-item>
+                Size : {{admin.size}}
+              </ion-item>
+            </ion-list>
+            <ion-list class="" [ngClass]="admin.type == 'MotherBoard' ? '' : 'hide'">
+              <ion-item>
+                Chipset : {{admin.chipset}}
+              </ion-item>
+              <ion-item>
+                Assigned for : {{admin.motherboard_type}}
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+  </ion-grid>
+</ion-content>
+

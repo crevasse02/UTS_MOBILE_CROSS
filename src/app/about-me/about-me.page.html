@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="homeMenu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align:center;">About Me</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="text-align:center;">
+  <ion-grid class="mid"> 
+    <ion-row>
+      <div class="center">
+        <ion-card style="text-align:center;">
+          <ion-item *ngFor="let about of aboutMe" >
+            <ion-col><ion-img class="center" [src]="about.profile_picture"></ion-img></ion-col>
+          </ion-item>
+          <ion-item *ngFor="let about of aboutMe" >
+            <h1  style="margin:auto;">{{about.name}}</h1>
+          </ion-item>
+          <ion-item *ngFor="let about of aboutMe" >
+            <h2  style="margin:auto;">{{about.nim}} - {{about.class}}</h2>
+          </ion-item>
+          <ion-item style="text-align: center;">
+            <p style="opacity:60%;font-size:90%">Dalam project ini saya membuat aplikasi bersama dengan Edward Louis Rago, Riza Kurniawanda, Arnoldus Bio Dhae dan Vincent Tjeng Tjendra. 
+              Library yang saya gunakan adalah menggunakan library bawaan dari ionic seperti AlertController, ToastController, IonItemSliding, NgForm, dan lain-lain. Dalam mengerjakan saya mencari referensi
+              di internet dan ionic framework official website. </p>
+          </ion-item>
+        </ion-card>
+      </div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

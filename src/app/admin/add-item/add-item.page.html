@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/admin">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="text-align: center;">Add Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Type</ion-label>
+        <ion-select ngModel placeholder="Select One" name="type" #typeCtrl="ngModel" (ionChange)="onChange(form)" required>
+          <ion-select-option value="CPU">CPU</ion-select-option>
+          <ion-select-option value="RAM">RAM</ion-select-option>
+          <ion-select-option value="GraphicCard">GPU</ion-select-option>
+          <ion-select-option value="MotherBoard">Motherboard</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Image URL (link)</ion-label>
+        <ion-input type="url" ngModel name="photo" #photoCtrl="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Brand</ion-label>
+        <ion-input type="text" ngModel name="brand" #brandCtrl="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input type="text" ngModel name="model" #modelCtrl="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Price</ion-label>
+        <ion-input type="number" ngModel name="price" #priceCtrl="ngModel" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Stock</ion-label>
+        <ion-input type="number" ngModel name="stock" #stockCtrl="ngModel" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list [ngClass]="type_change == 'RAM' ? '' : 'hide'">
+      <ion-item>
+        <ion-label position="floating">Speed</ion-label>
+        <ion-input type="text" ngModel name="speed" #speedCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Size</ion-label>
+        <ion-input type="text" ngModel name="size" #sizeCtrl="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list [ngClass]="type_change == 'CPU' ? '' : 'hide'">
+      <ion-item>
+        <ion-label position="floating">Base-Clock</ion-label>
+        <ion-input type="text" ngModel name="baseclock" #baseCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Boost-Clock</ion-label>
+        <ion-input type="text" ngModel name="boostclock" #boostCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Total Core</ion-label>
+        <ion-input type="number" ngModel name="core" #coreCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Total Thread</ion-label>
+        <ion-input type="number" ngModel name="thread" #threadCtrl="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list [ngClass]="type_change == 'MotherBoard' ? '' : 'hide'">
+      <ion-item>
+        <ion-label position="floating">Chipset</ion-label>
+        <ion-input type="text" ngModel name="chipset" #chipsetCtrl="ngModel"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Assigned for :</ion-label>
+        <ion-input type="text" ngModel name="mb_type" #mb_typeCtrl="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button style="display:flex; justify-content: center;"type="submit" color="tertiary" >Add Item</ion-button>
+  </form>
+</ion-content>
